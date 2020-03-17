@@ -1,4 +1,9 @@
 class VigenereCipheringMachine {
+
+  constructor(type=true) {
+    this.type = type;
+  }
+
     encrypt(str, key) {
         str = str.toUpperCase()
         key = key.toUpperCase()
@@ -13,7 +18,13 @@ class VigenereCipheringMachine {
             j++
           }
         }
-        return resaultSting.join('')
+
+        if (!this.type) {
+          return resaultSting.reverse().join('')
+        } else {
+          return resaultSting.join('')
+        }
+        
     }
 
     decrypt(str, key){
@@ -30,8 +41,12 @@ class VigenereCipheringMachine {
             j++
           }
         }
-        return resaultSting.join('')
-    }12 
+        if (!this.type) {
+          return resaultSting.reverse().join('')
+        } else {
+          return resaultSting.join('')
+        }
+    }
 }
 
 module.exports = VigenereCipheringMachine;
